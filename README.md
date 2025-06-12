@@ -1,7 +1,63 @@
-maeveobyrne.com
+# **maeveobyrne.com**
 
-Website built for artist Maeve O'Byrne based in County Wexford Ireland. Maeve wished to display her work to an international audience. This website is to be the a baseline from which to build a larger content base in future and subsequently more complex systems may need to be included such as databases and image hosting solutions. 
+A portfolio website for Maeve O'Byrne, artist based in County Wexford, Ireland. The site presents a curated selection of artwork, biography, and exhibition history, with a clean and accessible design. With this website, Maeve aims to reach an international audience and showcase her artistic journey.
 
-This website is intended to be built in a way that allows the addition of a CMS system and analytics systems in future deployments. For this reason the website is built with Gatsby and hosted on Netlify so as to avail of Netlify CMS at a later date.
+## **Technology used**
 
-Peter Murphy 04.07.2022
+**Gatsby**  
+"Gatsby is a free and open-source framework based on React that helps developers build blazing-fast websites and apps." - https://www.gatsbyjs.com/
+
+**React**  
+"React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called 'components'." - https://react.dev/
+
+**React Bootstrap**  
+"React-Bootstrap replaces the Bootstrap JavaScript. Each component has been built from scratch as a true React component, without unneeded dependencies like jQuery." - https://react-bootstrap.github.io/
+
+**Netlify**  
+"Netlify is a platform for automating modern web projects. It provides hosting and serverless backend services for web applications and static websites." - https://www.netlify.com/
+
+## **Setting up the Project**
+
+- Ensure Node.js and Yarn are installed.
+- Clone the repository:
+  ```sh
+  git clone https://github.com/gitmurphy/maeveobyrne-gallery-site.git
+  ```
+- Install dependencies:
+  ```sh
+  yarn install
+  ```
+
+## **Running the Project**
+
+Start the Gatsby development server:
+
+```sh
+yarn develop
+```
+
+or
+
+```sh
+yarn start
+```
+
+## **Building for Production**
+
+Build the site for deployment:
+
+```sh
+yarn build
+```
+
+## **Site Structure**
+
+- Home Page: Features a welcome message and highlights of Maeve's work.
+- About Page: Contains Maeve's biography and artistic journey.
+- Gallery Page: Displays a selection of Maeve's artwork with images and descriptions.
+- Blog Page: Showcases articles and updates about Maeve's exhibitions and projects.
+- Contact Page: Provides a form for visitors to get in touch with Maeve.
+
+## **Deployment**
+
+Deployed with Netlify for continuous integration and hosting. Pushing to the `main` branch automatically triggers a new deployment.

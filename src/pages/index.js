@@ -8,7 +8,6 @@ import LYLSGallery from "../components/LYLSGallery";
 
 const IndexPage = () => (
   <Layout>
-      <Seo title="Home" />
       <HeroSection/>
       <LAFGallery/>
       <LYLSGallery/>
@@ -16,3 +15,5 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const Head = () => <Seo title="Home" />

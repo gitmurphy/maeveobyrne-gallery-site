@@ -1,12 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Maeve O'Byrne`,
-    description: `A website for fine arts painter Maeve O'Byrne to showcase her artworks and to 
+    description: `A website for fine arts painter Maeve O'Byrne to showcase her artworks and to
     gain business enquiries.`,
     author: `Peter Murphy`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     //extract styled-components css at build time so the nav is styled in the
     //server-rendered html, before any js runs (fixes the unstyled menu flash)
     `gatsby-plugin-styled-components`,
@@ -39,13 +38,7 @@ module.exports = {
         icon: `src/images/paint-brush.png`, // Favicon
       },
     },
-    `gatsby-plugin-typescript`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-mdx`,
-    // //parse markdown files to graphql readable
-    // `gatsby-transformer-remark`,
-    // //parse images in markdown files to graphql readable
-    // `gatsby-remark-images`,
   ],
 }

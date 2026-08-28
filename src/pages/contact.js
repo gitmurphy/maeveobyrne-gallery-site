@@ -5,9 +5,10 @@ import Seo from "../components/seo"
 
 const Contact = () => (
   <Layout>
-    <Seo title="Contact" />
     <ContactSection />
   </Layout>
 )
 
 export default Contact
+
+export const Head = () => <Seo title="Contact" />

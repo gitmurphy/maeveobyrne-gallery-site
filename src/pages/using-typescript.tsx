@@ -16,7 +16,6 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   location,
 }) => (
   <Layout>
-    <Seo title="Using TypeScript" />
     <h1>
       Gatsby supports <b>TypeScript by default</b>
     </h1>
@@ -45,6 +44,8 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
 )
 
 export default UsingTypescript
+
+export const Head = () => <Seo title="Using TypeScript" />
 
 export const query = graphql`
   {

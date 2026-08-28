@@ -1,17 +1,6 @@
-.my-masonry-grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
-    display: flex;
-    margin-left: -30px; /* gutter size offset */
-    width: auto;
-  }
-  .my-masonry-grid_column {
-    padding-left: 50px; /* gutter size */
-    background-clip: padding-box;
-  }
-  
-  /* Style your items */
-  .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-    background: #FFFFFF;
-    margin-bottom: 50px;
-  }
+/* breathing room above the first row and below the last, a little tighter
+   than the 30px gutter between the paintings themselves */
+.gallery-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}

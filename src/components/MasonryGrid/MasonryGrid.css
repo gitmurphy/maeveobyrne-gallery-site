@@ -1,0 +1,18 @@
+.masonry-grid {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.masonry-grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    /* let the columns shrink below their images' intrinsic width */
+    min-width: 0;
+}
+
+.masonry-grid-item {
+    background: #FFFFFF;
+}

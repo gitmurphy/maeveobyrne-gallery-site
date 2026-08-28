@@ -6,48 +6,37 @@ import Seo from "../../components/seo";
 import { graphql, Link } from "gatsby"
 
 import { GatsbyImage } from "gatsby-plugin-image"
-import Masonry from "react-masonry-css"
 import { Container } from "react-bootstrap"
+import MasonryGrid from "../../components/MasonryGrid"
 import "./style/gallery-masonry.css"
 
 const GalleryPage = ({ data }) => {
 
-  const breakpointColumnsObj = {
-    default: 4,
-    //for large displays
-    1200: 5,
-    //for laptops
-    750: 4,
-    //for tablets
-    600: 2,
-    //for phones
-    576: 2
-  };
+  const items = data.allMdx.edges.map(({ node }) => {
+    const image = node.frontmatter.hero_image.childImageSharp.gatsbyImageData
+    return {
+      id: node.id,
+      slug: node.slug,
+      title: node.frontmatter.title,
+      image,
+      // used to balance the columns, see MasonryGrid
+      aspectRatio: image.height / image.width,
+    }
+  })
 
   return (
     <Layout>
       <Seo title="Gallery" />
       <Container className="gallery-container">
         {/* Masonry Gallery Grid */}
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          {/* array of JSX items */}
-          {data.allMdx.edges.map(({ node }) => (
-            <div key={node.id} className="py-1">
-              <Link to={node.slug}>
-                <GatsbyImage
-                  image={
-                    node.frontmatter.hero_image.childImageSharp.gatsbyImageData
-                  }
-                  alt={node.frontmatter.title}
-                />
-              </Link>
-            </div>
-          ))}
-        </Masonry>
+        <MasonryGrid
+          items={items}
+          renderItem={item => (
+            <Link to={item.slug}>
+              <GatsbyImage image={item.image} alt={item.title} />
+            </Link>
+          )}
+        />
       </Container>
     </Layout>
   )

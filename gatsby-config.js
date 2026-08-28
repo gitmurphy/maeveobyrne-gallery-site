@@ -7,6 +7,9 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    //extract styled-components css at build time so the nav is styled in the
+    //server-rendered html, before any js runs (fixes the unstyled menu flash)
+    `gatsby-plugin-styled-components`,
     //optime images for screen-size/ lazy-loading/ blur-on-load
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

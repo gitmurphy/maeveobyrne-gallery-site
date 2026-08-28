@@ -1,15 +1,8 @@
+/* the mat, caption and heading rules are shared and live in
+   src/styles/plate.css */
+
 .lyls-container {
-    background-color: #E3FFFF;
+    background-color: var(--page);
     padding-top: 50px;
-}
-
-
-.card {
-    margin-bottom: 50px;
-}
-
-.heading-row > h1 {
-    color: #0E6EFC;
-    font-size: 3rem;
-    text-align: center;
+    padding-bottom: 50px;
 }

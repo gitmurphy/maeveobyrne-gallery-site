@@ -9,6 +9,8 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/work-sans": "^5.3.0",
     "@mdx-js/react": "^2",
     "babel-plugin-styled-components": "^2",
     "bootstrap": "^5",
@@ -40,7 +42,8 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "trim-images": "node scripts/trim-source-margins.js"
   },
   "repository": {
     "type": "git",

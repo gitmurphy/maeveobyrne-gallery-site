@@ -1,5 +1,5 @@
 .blog-container {
-    background-color: #E3FFFF;
+    background-color: var(--page);
     padding: 20px;
 }
 

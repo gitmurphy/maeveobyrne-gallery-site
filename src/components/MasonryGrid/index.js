@@ -26,27 +26,50 @@ const columnsForWidth = width =>
 // the order the CMS hands us. Assigning tallest-first removes that dependency.
 // Column heights are decided by the assignment alone, so once that is done each
 // column is sorted back into document order for a natural reading order.
+// An item marked `leading` heads a column of its own, in document order, before
+// anything else is placed. That keeps the paintings Maeve wrote about at the top
+// of the grid rather than at whatever depth the packing would otherwise give
+// them. The balancing then works around those seeded heights, so a very tall
+// leading item simply receives less afterwards.
 const packIntoColumns = (items, columnCount) => {
   const columns = Array.from({ length: columnCount }, () => [])
   const heights = new Array(columnCount).fill(0)
 
-  const tallestFirst = items
-    .map((item, index) => ({ item, index }))
-    .sort((a, b) => (b.item.aspectRatio || 1) - (a.item.aspectRatio || 1))
+  const entries = items.map((item, index) => ({
+    item,
+    index,
+    leading: Boolean(item.leading),
+  }))
 
-  tallestFirst.forEach(entry => {
-    let shortest = 0
-    for (let i = 1; i < columnCount; i++) {
-      if (heights[i] < heights[shortest]) {
-        shortest = i
+  const place = (entry, column) => {
+    columns[column].push(entry)
+    heights[column] += entry.item.aspectRatio || 1
+  }
+
+  entries
+    .filter(entry => entry.leading)
+    .forEach((entry, i) => place(entry, i % columnCount))
+
+  entries
+    .filter(entry => !entry.leading)
+    .sort((a, b) => (b.item.aspectRatio || 1) - (a.item.aspectRatio || 1))
+    .forEach(entry => {
+      let shortest = 0
+      for (let i = 1; i < columnCount; i++) {
+        if (heights[i] < heights[shortest]) {
+          shortest = i
+        }
       }
-    }
-    columns[shortest].push(entry)
-    heights[shortest] += entry.item.aspectRatio || 1
-  })
+      place(entry, shortest)
+    })
 
   return columns.map(column =>
-    column.sort((a, b) => a.index - b.index).map(entry => entry.item)
+    column
+      .sort((a, b) => {
+        if (a.leading !== b.leading) return a.leading ? -1 : 1
+        return a.index - b.index
+      })
+      .map(entry => entry.item)
   )
 }
 

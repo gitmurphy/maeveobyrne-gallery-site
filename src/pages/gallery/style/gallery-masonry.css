@@ -1,6 +1,5 @@
 /* breathing room above the first row and below the last, a little tighter
    than the 30px gutter between the paintings themselves */
 .gallery-container {
-    padding-top: 24px;
     padding-bottom: 24px;
 }

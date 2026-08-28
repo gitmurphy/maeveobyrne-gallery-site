@@ -8,5 +8,8 @@
     justify-content: center;
     align-items: center;
     object-fit: contain;
-    margin-top: -80px;
+    /* sits directly under the header. This was a hard -80px against a 78px
+       header, which left a 2px sliver of the hero showing above it. */
+    /* pull back through both the header and the page-top padding on main */
+    margin-top: calc(-1 * (var(--header-height) + var(--page-top)));
 }

@@ -64,7 +64,7 @@ export const query = graphql`
         sale_status
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
       }

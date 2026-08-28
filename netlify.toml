@@ -5,14 +5,10 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Keep every non-production deploy out of search results. Without this a branch
-# deploy of near-identical content competes with maeveobyrne.com for its own terms.
-[[context.branch-deploy.headers]]
-  for = "/*"
-  [context.branch-deploy.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[context.deploy-preview.headers]]
-  for = "/*"
-  [context.deploy-preview.headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+# Non-production deploys are kept out of search results by
+# scripts/deploy-context-guards.js, which runs after gatsby build and writes
+# _headers and robots.txt into the publish directory.
+#
+# It is done there rather than here because Netlify deploy contexts only apply
+# to build settings and environment - [[headers]] nested inside a [context.*]
+# block is accepted without complaint and then ignored.

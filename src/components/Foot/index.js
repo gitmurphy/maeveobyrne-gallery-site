@@ -3,9 +3,10 @@ import React from "react"
 import "./Foot.css"
 // bootstrap components
 import { Container } from "react-bootstrap"
-// image routes
-import VAI from "./images/VAI_member.jpg"
-import ALI from "./images/artlinks-logo.jpg"
+// membership marks, knocked out to white on transparency by
+// scripts/build-footer-marks.js
+import VAI from "../../images/footer-marks/vai-member.png"
+import ALI from "../../images/footer-marks/artlinks.png"
 
 function Foot() {
   return (
@@ -26,10 +27,14 @@ function Foot() {
           <div className="foot-marks">
             <img
               src={VAI}
-              alt="Visual Artists Ireland member"
-              className="foot-mark"
+              alt="Visual Artists Ireland"
+              className="foot-mark foot-mark-vai"
             />
-            <img src={ALI} alt="Artlinks member" className="foot-mark" />
+            <img
+              src={ALI}
+              alt="Artlinks member"
+              className="foot-mark foot-mark-artlinks"
+            />
           </div>
 
           <div className="foot-contact">

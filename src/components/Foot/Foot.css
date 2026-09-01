@@ -59,19 +59,25 @@
 .foot-marks {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
 }
 
-/* The supplied logos are JPEGs on white. Inverting then screening drops the
-   white ground so the marks sit on the footer rather than in a box on top of
-   it. Transparent SVGs from the VAI and Artlinks member kits would be better
-   still — the VAI file has a grey panel baked in that this cannot remove. */
+/* The marks reach us as white on transparency — VAI from the official
+   transparent logo, Artlinks knocked out of its scan by
+   scripts/build-footer-marks.js — so no filter or blend mode is needed here.
+   Sized by optical weight rather than a shared height: VAI is a wide lockup,
+   Artlinks is a square icon, so matching their heights would let VAI dominate. */
 .foot-mark {
-    height: 54px;
     width: auto;
-    filter: grayscale(1) invert(1) contrast(0.9);
-    mix-blend-mode: screen;
-    opacity: 0.9;
+    display: block;
+}
+
+.foot-mark-vai {
+    height: 48px;
+}
+
+.foot-mark-artlinks {
+    height: 56px;
 }
 
 .foot-rule {

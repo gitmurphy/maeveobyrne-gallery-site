@@ -43,7 +43,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "trim-images": "node scripts/trim-source-margins.js"
+    "trim-images": "node scripts/trim-source-margins.js",
+    "footer-marks": "node scripts/build-footer-marks.js"
   },
   "repository": {
     "type": "git",

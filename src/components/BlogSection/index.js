@@ -18,7 +18,7 @@ function BlogSection() {
                 nodes {
                     base
                     childImageSharp {
-                        gatsbyImageData(placeholder: BLURRED)
+                        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
                     }
                 }
             }

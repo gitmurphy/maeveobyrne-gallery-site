@@ -47,7 +47,7 @@ function ContactSection() {
                                 <Form.Label>Message</Form.Label>
                                 <Form.Control as="textarea" rows={5} placeholder="your message" name="Message" />
                             </Form.Group>
-                            <Button variant="outline-primary" type="submit">
+                            <Button type="submit" className="btn-harbour">
                                 Submit
                             </Button>
                         </Form>

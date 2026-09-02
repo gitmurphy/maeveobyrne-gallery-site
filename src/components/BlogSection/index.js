@@ -1,9 +1,8 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 // styles
 import "./BlogSection.css"
-// image routes
-import LAF from "./images/lost_and_found_thumb.jpg";
-import Examiner from "./images/maeve_examiner_article.png";
 // bootstrap components
 import { 
     Container, 
@@ -13,6 +12,26 @@ import {
 } from 'react-bootstrap'
 
 function BlogSection() {
+    const data = useStaticQuery(graphql`
+        query {
+            allFile(filter: { relativeDirectory: { eq: "blog" } }) {
+                nodes {
+                    base
+                    childImageSharp {
+                        gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+                    }
+                }
+            }
+        }
+    `)
+
+    const byFile = {}
+    data.allFile.nodes.forEach(node => {
+        if (node.childImageSharp) {
+            byFile[node.base] = node.childImageSharp.gatsbyImageData
+        }
+    })
+
     return (
         <div className="blog-container">
             <Container>
@@ -20,11 +39,16 @@ function BlogSection() {
                     <Card.Body>
                         <Card.Header className="text-center border-0">"Lost and Found" A New Collection of Paintings.</Card.Header>
                         <Row>
-                            <Col lg={3} md={12}>
-                                <img src={LAF} alt="Blog Post 1 Thumbnail" className="thumbnail-image p-4 img-fluid"/>
+                            <Col lg={5} md={12}>
+                                <div className="plate">
+                                    <GatsbyImage
+                                        image={byFile["lost_and_found_thumb.jpg"]}
+                                        alt="Paintings from the Lost and Found collection"
+                                    />
+                                </div>
                             </Col>
-                            <Col lg={9} md={12}>
-                            <Card.Text className="p-5">
+                            <Col lg={7} md={12}>
+                            <Card.Text className="blog-text">
                                 The work in this new collection of paintings 'lost and found', was created during Covid when I found the luxury
                                 of time to do what I love, painting and printmaking. Both my kitchen table and back garden became my studio and
                                 these 14 paintings emerged as a visual diary of sorts, of the places I have lived and worked over the past decade.
@@ -45,11 +69,16 @@ function BlogSection() {
                     <Card.Body>
                         <Card.Header className="text-center border-0">"Maeve's mana from Hawaii" An article written in the Irish Examiner by Des O'Sullivan</Card.Header>
                         <Row>
-                            <Col lg={3} md={12}>
-                                <img src={Examiner} alt="Maeves mana from Hawaii" className="examiner_page p-4 img-fluid"/>
+                            <Col lg={5} md={12}>
+                                <div className="plate">
+                                    <GatsbyImage
+                                        image={byFile["maeve_examiner_article.png"]}
+                                        alt="Maeve's mana from Hawaii, Irish Examiner article by Des O'Sullivan"
+                                    />
+                                </div>
                             </Col>
-                            <Col lg={9} md={12}>
-                            <Card.Text className="p-5">
+                            <Col lg={7} md={12}>
+                            <Card.Text className="blog-text">
                                 LOOKING at Maeve O'Byrne's paintings you wonder, how did she ever manage to drag herself away from Hawaii. Infused 
                                 with colour and light, they radiate contentment and good cheer. She loves it there and it shows in the work now hanging 
                                 at The Bodega in Cork's Commarket Street. But drag herself away she did. After four years on these lush volcanic Pacific 

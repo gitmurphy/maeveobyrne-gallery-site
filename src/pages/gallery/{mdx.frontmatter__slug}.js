@@ -2,21 +2,18 @@ import { graphql } from "gatsby"
 import * as React from "react"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Row, Col, Table } from "react-bootstrap"
 
 const PaintingPage = ({ data }) => {
-  
+
   const image = getImage(data.mdx.frontmatter.hero_image)
   let media = data.mdx.frontmatter.media
-  if(media == null){
+  if (media == null) {
     media = "Acrylic"
   }
   return (
     <Layout>
-      <Seo title="Painting" />
-
       <Container>
         <Row>
           <Col></Col>
@@ -44,7 +41,6 @@ const PaintingPage = ({ data }) => {
                                 </tbody>
             </Table>
             <br />
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </Col>
           <Col></Col>
         </Row>
@@ -53,25 +49,29 @@ const PaintingPage = ({ data }) => {
   )
 }
 
-//query exported so that gatsby can see it
+// The File System Route API passes the matched node's id in page context.
+// gatsby-plugin-mdx v5 dropped the `slug` field, so the route is driven by
+// `frontmatter.slug` instead and the query matches on id.
 export const query = graphql`
-  query PaintingQuery($slug: String) {
-    mdx(slug: { eq: $slug }) {
-      body
+  query PaintingQuery($id: String) {
+    mdx(id: { eq: $id }) {
       id
       frontmatter {
+        title
+        slug
         dimensions
         media
-        title
+        sale_status
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
-        sale_status
       }
     }
   }
 `
 
 export default PaintingPage
+
+export const Head = () => <Seo title="Painting" />

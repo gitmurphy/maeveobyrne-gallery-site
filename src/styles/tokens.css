@@ -1,0 +1,41 @@
+/**
+ * Harbour — the v2 palette and type scale.
+ *
+ * Every colour lives here. Nothing else in the codebase should carry a raw hex
+ * value; the old #0E6EFC / #E3FFFF pair is retired.
+ */
+:root {
+  /* grounds */
+  --page: #FBFBF9;
+  --oyster: #EDECE8;
+  --topbar: #E4E6E2;
+  --mat: #FFFFFF;
+
+  /* ink */
+  --marine: #123047;
+  --marine-soft: #2C4A5E;
+  --harbour: #1E5273;
+  --harbour-muted: #AFC6D4;
+
+  /* accents — the dark teal is for light grounds, the light one for dark */
+  --teal-dark: #1B6F6A;
+  --teal-light: #7FD9D2;
+
+  /* rules */
+  --rule: #D3D6D1;
+  --rule-soft: #C3C8C3;
+  --rule-on-dark: rgba(237, 236, 232, 0.18);
+
+  /* type */
+  --display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --body: "Work Sans Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  /* the mat's paper tooth — generated, so no image request and no seams */
+  --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+
+  /* chrome */
+  --header-height: 78px;
+  /* breathing room at the top of every page except the home hero */
+  --page-top: 56px;
+}

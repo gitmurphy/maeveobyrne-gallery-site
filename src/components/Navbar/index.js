@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // icons
 import { FaBars, FaTimes } from "react-icons/fa"
 // bootstrap components
@@ -13,35 +13,33 @@ import {
 } from "./NavbarElements"
 
 const Navbar = () => {
-    const [click, setClick] = useState(false)
-    const [scroll, setScroll] = useState(false)
+    const [open, setOpen] = useState(false)
 
-    const handleClick = () => setClick(!click)
-
-    const changeNav = () => {
-        if (window.scrollY >= 80) {
-            setScroll(true)
-        } else {
-            setScroll(false)
-        }
-    }
-
-    useEffect(() => {
-        changeNav()
-        window.addEventListener("scroll", changeNav)
-    }, [])
+    const toggle = () => setOpen(!open)
 
     return (
         <>
-            <Nav active={scroll} click={click}>
+            <Nav>
                 <NavbarContainer>
                     <NavLogo to="/">
                         Maeve O'Byrne
                     </NavLogo>
-                    <MobileIcon onClick={handleClick}>
-                        {click ? <FaTimes /> : <FaBars />}
+                    <MobileIcon
+                        onClick={toggle}
+                        role="button"
+                        tabIndex={0}
+                        aria-expanded={open}
+                        aria-label={open ? "Close menu" : "Open menu"}
+                        onKeyDown={event => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault()
+                                toggle()
+                            }
+                        }}
+                    >
+                        {open ? <FaTimes /> : <FaBars />}
                     </MobileIcon>
-                    <NavMenu onClick={handleClick} click={click}>
+                    <NavMenu onClick={toggle} $open={open}>
                         <NavItem>
                             <NavLinks to="/">Home</NavLinks>
                         </NavItem>

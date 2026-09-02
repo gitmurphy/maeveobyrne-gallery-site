@@ -5,9 +5,10 @@ import Seo from "../components/seo"
 
 const BlogPage = () => (
   <Layout>
-    <Seo title="Blog" />
     <BlogSection />
   </Layout>
 )
 
 export default BlogPage
+
+export const Head = () => <Seo title="Blog" />

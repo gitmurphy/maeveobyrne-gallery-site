@@ -2,65 +2,59 @@ import React from "react"
 // styles
 import "./Foot.css"
 // bootstrap components
-import { Container, Row, Col } from "react-bootstrap"
-// image routes
-import VAI from "./images/VAI_member.jpg"
-import ALI from "./images/artlinks-logo.jpg"
+import { Container } from "react-bootstrap"
+// membership marks, knocked out to white on transparency by
+// scripts/build-footer-marks.js
+import VAI from "../../images/footer-marks/vai-member.png"
+import ALI from "../../images/footer-marks/artlinks.png"
 
 function Foot() {
   return (
     <div className="foot-container">
       <Container>
-        <Row>
-          <Col lg={3} md={12} className="p-3">
+        <div className="foot-grid">
+          <div>
+            <div className="foot-name">Maeve O'Byrne</div>
+            <p className="foot-body">
+              Artist based in County Wexford.
+              <br />
+              Member of Visual Artists Ireland.
+              <br />
+              Member of Artlinks.
+            </p>
+          </div>
+
+          <div className="foot-marks">
             <img
               src={VAI}
-              alt="Visual Artists of Ireland"
-              className="foot-logo"
+              alt="Visual Artists Ireland"
+              className="foot-mark foot-mark-vai"
             />
             <img
               src={ALI}
-              alt="Visual Artists of Ireland"
-              className="foot-logo"
+              alt="Artlinks member"
+              className="foot-mark foot-mark-artlinks"
             />
-          </Col>
-          <Col lg={3} md={12} className="p-3">
-            <h5>Maeve O'Byrne</h5>
-            <p>
-              Artist based in County Wexford.
-              <br />
-              Member of Visual Artists of Ireland.
-              <br />
-              Member of Artlinks.
-              <br />
-            </p>
-          </Col>
-          <Col lg={6} md={12} className="d-flex justify-content-left p-3">
-            <p>
-              Email
-              <br />
-              <a href="mailto:maeveobyrne1961@gmail.com" className="email-link">
-                {" "}
+          </div>
+
+          <div className="foot-contact">
+            <div>
+              <div className="foot-label">Email</div>
+              <a href="mailto:maeveobyrne1961@gmail.com">
                 maeveobyrne1961@gmail.com
               </a>
-              <br />
-              Call
-              <br />
-              <a href="tel:00353872843571" className="phone-link">
-                {" "}
-                +353 87 284 3571
-              </a>
-            </p>
-          </Col>
-        </Row>
-        <Row className="copyright-row">
-          <Col
-            lg={12}
-            className="d-flex justify-content-center p-1 text-middle"
-          >
-            {new Date().getFullYear()} © Maeve O'Byrne | All Rights Reserved
-          </Col>
-        </Row>
+            </div>
+            <div>
+              <div className="foot-label">Call</div>
+              <a href="tel:00353872843571">+353 87 284 3571</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="foot-rule">
+          <span>{new Date().getFullYear()} © Maeve O'Byrne</span>
+          <span>All Rights Reserved</span>
+        </div>
       </Container>
     </div>
   )

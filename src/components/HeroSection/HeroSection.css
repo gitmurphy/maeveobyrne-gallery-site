@@ -1,12 +1,24 @@
 .hero-container {
-    background: url('../../images/laf-gallery/sunflower_hut_in_sicily.jpg') center center/
-    cover no-repeat;
+    position: relative;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    object-fit: contain;
-    margin-top: -80px;
+    /* sits directly under the header. This was a hard -80px against a 78px
+       header, which left a 2px sliver of the hero showing above it. */
+    /* pull back through both the header and the page-top padding on main */
+    margin-top: calc(-1 * (var(--header-height) + var(--page-top)));
+}
+
+/* the gatsby-image wrapper fills the hero box; the img inside covers it, so
+   the blurred placeholder and the real image occupy the same frame */
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

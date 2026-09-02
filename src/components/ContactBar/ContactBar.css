@@ -1,10 +1,90 @@
-.contact-bar-container {
-    background-color: #0E6EFC;
-    color: #E3FFFF;
-    padding-top:5px;
-    text-align: right;
+.contact-bar {
+    background-color: var(--topbar);
+    color: var(--marine);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 5%;
+    font-family: var(--body);
+    font-size: 0.8125rem;
 }
 
-.email-link {
-    color: #E3FFFF;
+.contact-chip {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid var(--rule-soft);
+    border-radius: 999px;
+    padding: 5px 9px;
+    background: transparent;
+    transition: background 240ms ease, border-color 240ms ease, color 240ms ease;
+}
+
+.contact-chip svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+    flex: none;
+}
+
+.contact-chip-label {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 0;
+    font-variant-numeric: tabular-nums;
+    transition: max-width 420ms cubic-bezier(.22, .8, .24, 1),
+                opacity 200ms ease,
+                margin-left 420ms cubic-bezier(.22, .8, .24, 1);
+}
+
+.contact-chip:hover,
+.contact-chip:focus-visible {
+    background: var(--marine);
+    border-color: var(--marine);
+    color: var(--page);
+}
+
+.contact-chip:hover .contact-chip-label,
+.contact-chip:focus-visible .contact-chip-label {
+    max-width: 30ch;
+    opacity: 1;
+    margin-left: 8px;
+}
+
+.contact-chip:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* screen readers get the purpose of each chip, not just the value */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* no hover available: show the details permanently */
+@media (hover: none) {
+    .contact-chip-label {
+        max-width: 30ch;
+        opacity: 1;
+        margin-left: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-chip,
+    .contact-chip-label {
+        transition-duration: 1ms;
+    }
 }

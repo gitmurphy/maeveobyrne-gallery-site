@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Non-production deploys are kept out of search results by
+# scripts/deploy-context-guards.js, which runs after gatsby build and writes
+# _headers and robots.txt into the publish directory.
+#
+# It is done there rather than here because Netlify deploy contexts only apply
+# to build settings and environment - [[headers]] nested inside a [context.*]
+# block is accepted without complaint and then ignored.

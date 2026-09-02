@@ -1,29 +1,8 @@
+/* the mat, caption, read-more and heading rules are shared and live in
+   src/styles/plate.css */
+
 .lafg-container {
-    background-color: #E3FFFF;
+    background-color: var(--page);
     padding-top: 50px;
-}
-
-#sicily-collapse-details,
-#days-collapse-details,
-#flowers-collapse-details {
-    margin-top: 20px;
-}
-
-.card {
-    margin-bottom: 50px;
-}
-
-.heading-row > h1 {
-    color: #0E6EFC;
-    font-size: 3rem;
-    text-align: center;
-}
-
-
-.days-image {
-    height: 950px;
-    width: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 50px;
 }

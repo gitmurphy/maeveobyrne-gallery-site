@@ -1,8 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+/* fonts are self-hosted via fontsource, so there is no render-blocking
+   stylesheet request to a third party on first paint */
+@import "@fontsource-variable/fraunces/index.css";
+@import "@fontsource-variable/work-sans/index.css";
+@import "../styles/tokens.css";
+@import "../styles/plate.css";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "DM Serif Text", serif;
+}
+
+body {
+  background-color: var(--page);
+  color: var(--marine);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--display);
+  color: var(--marine);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+a {
+  color: var(--teal-dark);
+}
+
+main {
+  background-color: var(--page);
+  padding-top: var(--page-top);
 }

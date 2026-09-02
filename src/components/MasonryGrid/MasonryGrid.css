@@ -13,6 +13,33 @@
     min-width: 0;
 }
 
+/* Each painting sits on its own brilliant white mat, the way a mat is cut for
+   a frame. The images are trimmed of their own baked-in white margins in the
+   image pipeline (transformOptions: { trim }), so this padding is the only
+   white and it is even on all four sides. */
 .masonry-grid-item {
-    background: #FFFFFF;
+    background-color: var(--mat);
+    background-image: var(--paper);
+    padding: 16px;
+    box-shadow:
+        0 1px 1px rgba(18, 48, 71, 0.06),
+        0 6px 18px rgba(18, 48, 71, 0.06);
+}
+
+.masonry-grid-item a {
+    display: block;
+}
+
+@media screen and (max-width: 720px) {
+    .masonry-grid {
+        gap: 14px;
+    }
+
+    .masonry-grid-column {
+        gap: 14px;
+    }
+
+    .masonry-grid-item {
+        padding: 9px;
+    }
 }

@@ -1,21 +1,100 @@
 .foot-container {
-    background-color: #0E6EFC;
-    color: #E3FFFF;
-    padding-top: 1rem;
+    background-color: var(--harbour);
+    color: var(--oyster);
+    font-family: var(--body);
+    padding: 38px 0 0;
 }
 
-.foot-logo {
-    border: 2px solid #FFF;
-    height: 100px;
-    width: 100px;
-    margin: 15px;
+.foot-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 40px;
+    align-items: start;
+    padding-bottom: 30px;
 }
 
-.copyright-row {
-    color: #E3FFFF;
+.foot-name {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--oyster);
 }
 
-.email-link,
-.phone-link {
-    color: #FFF;
+.foot-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--harbour-muted);
+}
+
+.foot-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--harbour-muted);
+    margin-bottom: 6px;
+}
+
+.foot-contact {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+}
+
+.foot-contact a {
+    color: var(--teal-light);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease;
+}
+
+.foot-contact a:hover,
+.foot-contact a:focus-visible {
+    border-bottom-color: var(--teal-light);
+}
+
+.foot-marks {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* The marks reach us as white on transparency — VAI from the official
+   transparent logo, Artlinks knocked out of its scan by
+   scripts/build-footer-marks.js — so no filter or blend mode is needed here.
+   Sized by optical weight rather than a shared height: VAI is a wide lockup,
+   Artlinks is a square icon, so matching their heights would let VAI dominate. */
+.foot-mark {
+    width: auto;
+    display: block;
+}
+
+.foot-mark-vai {
+    height: 48px;
+}
+
+.foot-mark-artlinks {
+    height: 56px;
+}
+
+.foot-rule {
+    border-top: 1px solid var(--rule-on-dark);
+    padding: 15px 0 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--harbour-muted);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .foot-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
 }

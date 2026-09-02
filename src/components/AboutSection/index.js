@@ -1,8 +1,7 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 // styles
 import "./AboutSection.css";
-// image routes
-import Maeve from "./images/maeve_layered_profile.png";
 // bootstrap components
 import {
     Container,
@@ -31,7 +30,14 @@ function AboutSection() {
                         </p>
                     </Col>
                     <Col lg={4} md={12}>
-                        <img src={Maeve} alt="Maeve at Van Gogh Exhibition" className="maeve-profile-image p-4 img-fluid" />
+                        <StaticImage
+                            src="./images/maeve_layered_profile.png"
+                            alt="Maeve at Van Gogh Exhibition"
+                            className="maeve-profile-image p-4 img-fluid"
+                            layout="constrained"
+                            width={600}
+                            placeholder="blurred"
+                        />
                     </Col>
                 </Row>
                 <Row className="mission-row text-center">

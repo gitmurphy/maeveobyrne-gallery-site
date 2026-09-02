@@ -5,9 +5,10 @@ import AboutSection from "../components/AboutSection"
 
 const About = () => (
   <Layout>
-    <Seo title="About" />
     <AboutSection />
   </Layout>
 )
 
 export default About
+
+export const Head = () => <Seo title="About" />
